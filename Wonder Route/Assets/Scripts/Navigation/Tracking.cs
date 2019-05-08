@@ -52,14 +52,11 @@ public class Tracking : MonoBehaviour
         }
         if (Input.location.status == LocationServiceStatus.Running)
         {
-            //_naviText.text = Input.location.status.ToString();
             _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
         }
         else
         {
             _naviText.text = "Nothings happening";
         }
-
-
     }
 }
