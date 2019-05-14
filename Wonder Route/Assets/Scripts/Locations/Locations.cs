@@ -5,7 +5,10 @@ using System.IO;
 
 public class Locations : MonoBehaviour
 {
-    public enum Location {SintLucasIngang, Microlab, PSVStadium, MCdonalds, End};
+    [SerializeField]
+    private Location locationData;
+
+    //public enum Location {SintLucasIngang, Microlab, PSVStadium, MCdonalds, End};
     int[,] gpsData; // 
 
     void Start()
@@ -26,17 +29,17 @@ public class Locations : MonoBehaviour
         }
     }
 
-    public int[] GetLocation(Location loc)
+    public Vector2 GetLocation(Location loc)
     {
-        int[] intData = new int[gpsData.GetLength(1)];
+        Vector2 vector2Data = new Vector2();
         int locInt = (int)loc;
 
-        for (int i = 0; i < intData.Length; i++)
+        for (int i = 0; i < gpsData.GetLength(0); i++)
         {
-            intData[i] = gpsData[locInt, i];
+            vector2Data = new Vector2(gpsData[i, 0], gpsData[i, 1]);
         }
 
-        return intData;
+        return vector2Data;
     }
 
     [System.Serializable]

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Tracking : MonoBehaviour
 {
     public int maxDistance;
+
     public Text _naviText;
     public Text _statusText;
 
@@ -18,9 +19,9 @@ public class Tracking : MonoBehaviour
 
     IEnumerator StartGPSTracker()
     {
-       _naviText.text = "Tracking...";
+        _naviText.text = "Tracking...";
 
-       yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3);
 
         if (!Input.location.isEnabledByUser)
         {
@@ -32,7 +33,7 @@ public class Tracking : MonoBehaviour
 
         int waitUntilTimeOut = 20;
 
-        while(Input.location.status == LocationServiceStatus.Initializing && waitUntilTimeOut > 0)
+        while (Input.location.status == LocationServiceStatus.Initializing && waitUntilTimeOut > 0)
         {
             yield return new WaitForSeconds(1);
             _naviText.text = Input.location.status.ToString();
@@ -52,11 +53,20 @@ public class Tracking : MonoBehaviour
         }
         if (Input.location.status == LocationServiceStatus.Running)
         {
-            _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
+            InvokeRepeating("TrackLocation", 1f, 1f);
         }
         else
         {
             _naviText.text = "Nothings happening";
+        }
+    }
+
+    void TrackLocation()
+    {
+        _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
+        if (Vector2.Distance(new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude), new Vector2(0,0/*Float latitude, float longitude*/)) < maxDistance)
+        {
+            //doStuff();
         }
     }
 }
