@@ -26,7 +26,7 @@ public class Tracking : MonoBehaviour
         f = f - 0.00100;
         Debug.Log(f);
 
-        double[] getPos = locations.GetLocation(locPos);
+        //double[] getPos = locations.GetLocation(locPos);
 
         _destinationNaviText.text = "Latitude: 51.44762 Longitude: 5.45506";
     }
@@ -88,7 +88,7 @@ public class Tracking : MonoBehaviour
 
     void TrackLocation()
     {
-        _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
+        _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude;
         OnLocation();
     }
 
