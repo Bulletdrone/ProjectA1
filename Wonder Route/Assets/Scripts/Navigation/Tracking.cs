@@ -6,10 +6,30 @@ using UnityEngine;
 
 public class Tracking : MonoBehaviour
 {
+    public Locations locations;
+    public Location locPos;
+
     public int maxDistance;
 
     public Text _naviText;
+    public Text _destinationNaviText;
+
     public Text _statusText;
+
+    void Start()
+    {
+        locPos = Location.SintLucasIngang;
+        double f;
+        f = 51.44762;
+        Debug.Log(f);
+
+        f = f - 0.00100;
+        Debug.Log(f);
+
+        double[] getPos = locations.GetLocation(locPos);
+
+        _destinationNaviText.text = "Latitude: 51.44762 Longitude: 5.45506";
+    }
 
     public void Tracker()
     {
@@ -19,6 +39,11 @@ public class Tracking : MonoBehaviour
 
     IEnumerator StartGPSTracker()
     {
+        if (Input.location.isEnabledByUser)
+        {
+            TrackLocation();
+        }
+
         _naviText.text = "Tracking...";
 
         yield return new WaitForSeconds(3);
@@ -64,9 +89,41 @@ public class Tracking : MonoBehaviour
     void TrackLocation()
     {
         _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp;
-        if (Vector2.Distance(new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude), new Vector2(0,0/*Float latitude, float longitude*/)) < maxDistance)
+        OnLocation();
+    }
+
+    public void SetlocPos(Location loc)
+    {
+        locPos = loc;
+    }
+
+    public bool OnLocation()
+    {
+        double currentLatitude;
+        double currentLongitude;
+
+        double locationLatitude;
+        double locationLongitude;
+
+        currentLatitude = Input.location.lastData.latitude;
+        currentLongitude = Input.location.lastData.longitude;
+
+        double[] locationGPS = locations.GetLocation(locPos);
+
+        //locationLatitude = locationGPS[0];
+        //locationLongitude = locationGPS[1];
+
+        locationLatitude = 51.44762;
+        locationLongitude = 5.45506;
+
+        if (currentLatitude - 0.00100 > locationLatitude && currentLatitude + 0.00100 < locationLatitude)
         {
-            //doStuff();
+            if (currentLongitude - 0.00100 > locationLongitude && currentLongitude + 0.00100 < locationLongitude)
+            {
+                return true;
+            }
+            return false;
         }
+        return false;
     }
 }

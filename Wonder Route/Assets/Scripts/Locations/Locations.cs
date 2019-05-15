@@ -9,11 +9,11 @@ public class Locations : MonoBehaviour
     private Location locationData;
 
     //public enum Location {SintLucasIngang, Microlab, PSVStadium, MCdonalds, End};
-    int[,] gpsData; // 
+    double[,] gpsData; // 
 
     void Start()
     {
-        gpsData = new int[(int)Location.End - 1, 2];
+        gpsData = new double[4, 2];
 
         SetLocation();
     }
@@ -27,19 +27,20 @@ public class Locations : MonoBehaviour
             gpsData[i, 1] = i + 2;
             Debug.Log(gpsData[i, 1]);
         }
+        gpsData[0, 0] = 51.44761661871976;
     }
 
-    public Vector2 GetLocation(Location loc)
+    public double[] GetLocation(Location loc)
     {
-        Vector2 vector2Data = new Vector2();
+        double[] gpsCords = new double[gpsData.GetLength(1)];
         int locInt = (int)loc;
 
-        for (int i = 0; i < gpsData.GetLength(0); i++)
+        for (int i = 0; i < gpsCords.Length; i++)
         {
-            vector2Data = new Vector2(gpsData[i, 0], gpsData[i, 1]);
+            gpsCords[i] =  gpsData[locInt, i];
         }
 
-        return vector2Data;
+        return gpsCords;
     }
 
     [System.Serializable]
