@@ -30,7 +30,7 @@ public class Tracking : MonoBehaviour
 
     public void Tracker()
     {
-        if (Input.location.isEnabledByUser)
+        if (Input.location.status == LocationServiceStatus.Running)
         {
             TrackLocation();
             return;
