@@ -19,11 +19,8 @@ public class Tracking : MonoBehaviour
     void Start()
     {
         locPos = Location.SintLucasIngang;
-        double f;
-        f = 51.44762;
-        Debug.Log(f);
-
-        f = f - 0.00100;
+        float f;
+        f = 51.44762f;
         Debug.Log(f);
 
         //double[] getPos = locations.GetLocation(locPos);
@@ -33,17 +30,18 @@ public class Tracking : MonoBehaviour
 
     public void Tracker()
     {
-        StartCoroutine(StartGPSTracker());
+        if (Input.location.isEnabledByUser)
+        {
+            TrackLocation();
+            return;
+        }
         _statusText.text = "Currently tracking";
+
+        StartCoroutine(StartGPSTracker());
     }
 
     IEnumerator StartGPSTracker()
     {
-        if (Input.location.isEnabledByUser)
-        {
-            TrackLocation();
-        }
-
         _naviText.text = "Tracking...";
 
         yield return new WaitForSeconds(3);
@@ -89,7 +87,14 @@ public class Tracking : MonoBehaviour
     void TrackLocation()
     {
         _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude;
-        OnLocation();
+        if (OnLocation())
+        {
+            _statusText.text = "You're on your location!";
+        }
+        else
+        {
+            _statusText.text = "You're not on your location.";
+        }
     }
 
     public void SetlocPos(Location loc)
@@ -99,31 +104,39 @@ public class Tracking : MonoBehaviour
 
     public bool OnLocation()
     {
-        double currentLatitude;
-        double currentLongitude;
+        float currentLatitude;
+        float currentLongitude;
 
-        double locationLatitude;
-        double locationLongitude;
+        float locationLatitude;
+        float locationLongitude;
 
         currentLatitude = Input.location.lastData.latitude;
         currentLongitude = Input.location.lastData.longitude;
 
-        double[] locationGPS = locations.GetLocation(locPos);
-
         //locationLatitude = locationGPS[0];
         //locationLongitude = locationGPS[1];
 
-        locationLatitude = 51.44762;
-        locationLongitude = 5.45506;
+        locationLatitude = 51.44762f;
+        locationLongitude = 5.45506f;
 
-        if (currentLatitude - 0.00100 > locationLatitude && currentLatitude + 0.00100 < locationLatitude)
+        if ((myApproximation(currentLatitude, locationLatitude, 0.01000f)) && myApproximation(currentLongitude, locationLongitude, 0.01000f))
+        {
+            return true;
+        }
+
+       /* if (currentLatitude - 0.01000 > locationLatitude && currentLatitude + 0.00100 < locationLatitude)
         {
             if (currentLongitude - 0.00100 > locationLongitude && currentLongitude + 0.00100 < locationLongitude)
             {
                 return true;
             }
             return false;
-        }
-        return false;
+        } */
+        return false; 
+    }
+
+    private bool myApproximation(float a, float b, float tolerance)
+    {
+        return (Mathf.Abs(a - b) < tolerance);
     }
 }
