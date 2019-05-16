@@ -119,7 +119,7 @@ public class Tracking : MonoBehaviour
         locationLatitude = 51.44762f;
         locationLongitude = 5.45506f;
 
-        if ((myApproximation(currentLatitude, locationLatitude, 0.01000f)) && myApproximation(currentLongitude, locationLongitude, 0.01000f))
+        if ((myApproximation(currentLatitude, locationLatitude, 0.010f)) && myApproximation(currentLongitude, locationLongitude, 0.010f))
         {
             return true;
         }
