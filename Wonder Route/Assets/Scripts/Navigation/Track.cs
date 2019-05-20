@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Android;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Tracking : MonoBehaviour
+public class Track : MonoBehaviour
 {
     public Locations locations;
     public Location locPos;
 
     public int maxDistance;
 
-    public Text _naviText;
-    public Text _destinationNaviText;
-
+    public Text _destinationText;
     public Text _statusText;
 
     void Start()
@@ -22,19 +19,10 @@ public class Tracking : MonoBehaviour
         float f;
         f = 51.44762f;
         Debug.Log(f);
-
-        //double[] getPos = locations.GetLocation(locPos);
-
-        _destinationNaviText.text = "Latitude: 51.44762 Longitude: 5.45506";
     }
 
     public void Tracker()
     {
-        /*if (Input.location.status == LocationServiceStatus.Running)
-        {
-            TrackLocation();
-            return;
-        }*/
         _statusText.text = "Currently tracking";
 
         StartCoroutine(StartGPSTracker());
@@ -42,8 +30,6 @@ public class Tracking : MonoBehaviour
 
     IEnumerator StartGPSTracker()
     {
-        _naviText.text = "Tracking...";
-
         yield return new WaitForSeconds(3);
 
         if (!Input.location.isEnabledByUser)
@@ -59,19 +45,16 @@ public class Tracking : MonoBehaviour
         while (Input.location.status == LocationServiceStatus.Initializing && waitUntilTimeOut > 0)
         {
             yield return new WaitForSeconds(1);
-            _naviText.text = Input.location.status.ToString();
             waitUntilTimeOut--;
         }
 
         if (waitUntilTimeOut < 1)
         {
-            _naviText.text = "Timed Out";
             yield break;
         }
 
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            _naviText.text = "Failed to launch locationservice";
             yield break;
         }
         if (Input.location.status == LocationServiceStatus.Running)
@@ -80,13 +63,11 @@ public class Tracking : MonoBehaviour
         }
         else
         {
-            _naviText.text = "Nothings happening";
         }
     }
 
     void TrackLocation()
     {
-        _naviText.text = "Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude;
         if (OnLocation())
         {
             _statusText.text = "You're on your location!";
@@ -97,9 +78,9 @@ public class Tracking : MonoBehaviour
         }
     }
 
-    public void SetlocPos(Location loc)
+    public void SetlocPos(int loc)
     {
-        locPos = loc;
+        locPos = (Location)loc;
     }
 
     public bool OnLocation()
@@ -113,21 +94,20 @@ public class Tracking : MonoBehaviour
         currentLatitude = Input.location.lastData.latitude;
         currentLongitude = Input.location.lastData.longitude;
 
-        //locationLatitude = locationGPS[0];
-        //locationLongitude = locationGPS[1];
+        float[] locationGPS;
+        locationGPS = locations.GetLocation(locPos);
 
-        locationLatitude = 51.44762f;
-        locationLongitude = 5.45506f;
+        locationLatitude = locationGPS[0];
+        locationLongitude = locationGPS[1];
 
-        if ((myApproximation(currentLatitude, locationLatitude, 0.0006f)) && myApproximation(currentLongitude, locationLongitude, 0.0006f))
+        if ((MyApproximation(currentLatitude, locationLatitude, 0.0006f)) && MyApproximation(currentLongitude, locationLongitude, 0.0006f))
         {
             return true;
         }
-
-        return false; 
+        return false;
     }
 
-    private bool myApproximation(float a, float b, float tolerance)
+    private bool MyApproximation(float a, float b, float tolerance)
     {
         return (Mathf.Abs(a - b) < tolerance);
     }

@@ -42,17 +42,4 @@ public class Locations : MonoBehaviour
 
         return gpsCords;
     }
-
-    [System.Serializable]
-    public class LocationInfo
-    {
-        public int[] cords;
-        //public string locName;
-    }
-
-    [System.Serializable]
-    public struct LocationCollection
-    {
-        public LocationInfo[] locationCollection;
-    }
 }
