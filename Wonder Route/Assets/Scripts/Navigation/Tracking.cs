@@ -30,11 +30,11 @@ public class Tracking : MonoBehaviour
 
     public void Tracker()
     {
-        if (Input.location.status == LocationServiceStatus.Running)
+        /*if (Input.location.status == LocationServiceStatus.Running)
         {
             TrackLocation();
             return;
-        }
+        }*/
         _statusText.text = "Currently tracking";
 
         StartCoroutine(StartGPSTracker());
@@ -76,7 +76,7 @@ public class Tracking : MonoBehaviour
         }
         if (Input.location.status == LocationServiceStatus.Running)
         {
-            InvokeRepeating("TrackLocation", 1f, 1f);
+            Invoke("TrackLocation", 1f);
         }
         else
         {
@@ -119,7 +119,7 @@ public class Tracking : MonoBehaviour
         locationLatitude = 51.44762f;
         locationLongitude = 5.45506f;
 
-        if ((myApproximation(currentLatitude, locationLatitude, 0.010f)) && myApproximation(currentLongitude, locationLongitude, 0.010f))
+        if ((myApproximation(currentLatitude, locationLatitude, 0.0006f)) && myApproximation(currentLongitude, locationLongitude, 0.0006f))
         {
             return true;
         }
