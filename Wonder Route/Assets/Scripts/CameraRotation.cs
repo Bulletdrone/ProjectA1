@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
-    // Update is called once per frame
+    void Start()
+    {
+        Input.gyro.enabled = true;
+    }
+
     void Update()
     {
         transform.localRotation = Input.gyro.attitude;
