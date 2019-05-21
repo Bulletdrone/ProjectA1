@@ -70,17 +70,18 @@ public class Track : MonoBehaviour
     {
         if (OnLocation())
         {
-            _statusText.text = "You're on your location!";
+            _statusText.text = "You're near " + locPos.ToString();
         }
         else
         {
-            _statusText.text = "You're not on your location.";
+            _statusText.text = "You're not near " + locPos.ToString();
         }
     }
 
     public void SetlocPos(int loc)
     {
         locPos = (Location)loc;
+        _destinationText.text = locPos.ToString();
     }
 
     public bool OnLocation()

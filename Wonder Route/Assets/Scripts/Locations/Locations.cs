@@ -5,9 +5,6 @@ using System.IO;
 
 public class Locations : MonoBehaviour
 {
-    [SerializeField]
-    private Location locationData;
-
     //public enum Location {SintLucasIngang, Microlab, PSVStadium, MCdonalds, End};
     float[,] gpsData; // 
 
@@ -20,14 +17,22 @@ public class Locations : MonoBehaviour
 
     public void SetLocation()
     {
-        for (int i = 0; i < gpsData.GetLength(0); i++)
-        {
-            gpsData[i, 0] = i + 1;
-            Debug.Log(gpsData[i, 0]);
-            gpsData[i, 1] = i + 2;
-            Debug.Log(gpsData[i, 1]);
-        }
-        gpsData[0, 0] = 51.44761661871976f;
+        //Sintlucas Ingang.
+        gpsData[0, 0] = 51.44709f;
+        gpsData[0, 1] = 5.45474f;
+        
+        //bagelwinkel.
+        gpsData[1, 0] = 51.44762f;
+        gpsData[1, 1] = 5.45506f;
+
+        //Sportcomplex
+        gpsData[2, 0] = 51.44799f;
+        gpsData[2, 1] = 5.45666f;
+
+        //Stationstrijp
+        gpsData[3, 0] = 51.44963f;
+        gpsData[3, 1] = 5.45770f;
+
     }
 
     public float[] GetLocation(Location loc)
@@ -41,5 +46,18 @@ public class Locations : MonoBehaviour
         }
 
         return gpsCords;
+    }
+
+    [System.Serializable]
+    public class LocationInfo
+    {
+        public int[] cords;
+        //public string locName;
+    }
+
+    [System.Serializable]
+    public struct LocationCollection
+    {
+        public LocationInfo[] locationCollection;
     }
 }
