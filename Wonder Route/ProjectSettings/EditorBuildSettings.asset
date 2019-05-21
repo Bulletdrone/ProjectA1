@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CameraTestScene/CameraTestScene.unity
     guid: 616ee9973db80c64c8a0d25a6df9a9b5
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: Assets/Scenes/UI-Test.unity
     guid: 9eebf45c0c0e5dd4f84937344e65d6d3
+  - enabled: 1
+    path: Assets/Scenes/CodeTest.unity
+    guid: 9ddb243024d36274d906551f6862367e
   m_configObjects: {}

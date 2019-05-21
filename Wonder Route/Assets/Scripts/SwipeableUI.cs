@@ -10,9 +10,8 @@ public class SwipeableUI : MonoBehaviour
     private Vector3 camStartPoint;
 
     public float speed;
-    float distance;
-
     private float nearestPlane;
+    float distance;
 
     private GameObject mainCam;
     private Transform[] planes;
@@ -21,6 +20,7 @@ public class SwipeableUI : MonoBehaviour
     {
         planes = GameObject.Find("Planes").GetComponentsInChildren<Transform>();
         distance = Screen.height * 15 / 100;
+
         mainCam = Camera.main.gameObject;
         camStartPoint = mainCam.transform.position;
     }
