@@ -3,8 +3,8 @@
 public enum Location
 {
     SintLucasIngang,
-    Microlab,
-    PSVStadium,
-    MCdonalds,
+    bagelnJuice,
+    Sportcomplex,
+    StationStrijp,
     End
 };
