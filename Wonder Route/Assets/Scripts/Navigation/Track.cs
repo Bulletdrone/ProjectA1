@@ -9,21 +9,12 @@ public class Track : MonoBehaviour
 
     public int maxDistance;
 
-    public Text _destinationText;
-    public Text _statusText;
-
-    void Start()
-    {
-        locPos = Location.SintLucasIngang;
-        float f;
-        f = 51.44762f;
-        Debug.Log(f);
-    }
+    [SerializeField]
+    private TextManager textManager;
 
     public void Tracker()
     {
-        TextManager.Instance.SetText(TextManager.Instance.statusText, "Currently tracking");
-
+        textManager.SetText(textManager.statusText, "Currently tracking");
         StartCoroutine(StartGPSTracker());
     }
 
@@ -33,7 +24,7 @@ public class Track : MonoBehaviour
 
         if (!Input.location.isEnabledByUser)
         {
-            TextManager.Instance.SetText(TextManager.Instance.statusText, "Currently not tracking");
+            textManager.SetText(textManager.statusText, "Currently not tracking");
             yield break;
         }
 
@@ -69,18 +60,18 @@ public class Track : MonoBehaviour
     {
         if (OnLocation())
         {
-            TextManager.Instance.SetText(TextManager.Instance.statusText, "You're near " + locPos.ToString());
+            textManager.SetText(textManager.statusText, "You're near " + locPos.ToString());
         }
         else
         {
-            TextManager.Instance.SetText(TextManager.Instance.statusText, "You're near " + locPos.ToString());
+            textManager.SetText(textManager.statusText, "You're near " + locPos.ToString());
         }
     }
 
     public void SetlocPos(int loc)
     {
         locPos = (Location)loc;
-        _destinationText.text = locPos.ToString();
+        textManager.SetText(textManager.destinationText, locPos.ToString());
     }
 
     public bool OnLocation()

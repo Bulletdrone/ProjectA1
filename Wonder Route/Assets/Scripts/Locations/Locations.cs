@@ -8,7 +8,7 @@ public class Locations : MonoBehaviour
     //public enum Location {SintLucasIngang, Microlab, PSVStadium, MCdonalds, End};
     float[,] gpsData; // 
 
-    void Start()
+    private void Start()
     {
         gpsData = new float[4, 2];
 

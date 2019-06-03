@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class TextManager : MonoBehaviour
 {
-    public static TextManager Instance;
-
     public Text destinationText;
     public Text statusText;
 
@@ -15,9 +13,9 @@ public class TextManager : MonoBehaviour
     public Text characterName;
     public Text characterInformation;
 
-    public Text objectName1, objectDescription1;
+    public Text topObjectName, topObjectDescription;
 
-    public Text objectName2, objectDescription2;
+    public Text bottomObjectName, bottomObjectDescription;
 
 
     /// <summary>
@@ -37,7 +35,7 @@ public class TextManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Temporarly add a sentence to a text.
+    /// Temporarily change the sprite and after the duration sets it back to the origional..
     /// </summary>
     public void TempText(Text text, string sentence, float duration)
     {
@@ -47,8 +45,9 @@ public class TextManager : MonoBehaviour
 
     IEnumerator TempTextIE(Text text, string sentence, float duration)
     {
+        string org = text.text;
         text.text = sentence;
         yield return new WaitForSeconds(duration);
-        text.text = null;
+        text.text = org;
     }
 }
