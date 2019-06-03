@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Track : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class Track : MonoBehaviour
 
     public void Tracker()
     {
-        _statusText.text = "Currently tracking";
+        TextManager.Instance.SetText(TextManager.Instance.statusText, "Currently tracking");
 
         StartCoroutine(StartGPSTracker());
     }
@@ -34,7 +33,7 @@ public class Track : MonoBehaviour
 
         if (!Input.location.isEnabledByUser)
         {
-            _statusText.text = "Currently not tracking";
+            TextManager.Instance.SetText(TextManager.Instance.statusText, "Currently not tracking");
             yield break;
         }
 
@@ -70,11 +69,11 @@ public class Track : MonoBehaviour
     {
         if (OnLocation())
         {
-            _statusText.text = "You're near " + locPos.ToString();
+            TextManager.Instance.SetText(TextManager.Instance.statusText, "You're near " + locPos.ToString());
         }
         else
         {
-            _statusText.text = "You're not near " + locPos.ToString();
+            TextManager.Instance.SetText(TextManager.Instance.statusText, "You're near " + locPos.ToString());
         }
     }
 
