@@ -10,8 +10,8 @@ public class TextManager : MonoBehaviour
 
     public Text locationName;
 
-    public Text characterName;
-    public Text characterInformation;
+    public Text characterTextTitle;
+    public Text characterTextDescription;
 
     public Text topObjectName, topObjectDescription;
 
