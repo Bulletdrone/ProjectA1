@@ -5,7 +5,7 @@ using UnityEngine;
 public class Track : MonoBehaviour
 {
     public Locations locations;
-    public Location locPos;
+    public LocationEnum locPos;
 
     public int maxDistance;
 
@@ -70,7 +70,7 @@ public class Track : MonoBehaviour
 
     public void SetlocPos(int loc)
     {
-        locPos = (Location)loc;
+        locPos = (LocationEnum)loc;
         textManager.SetText(textManager.destinationText, locPos.ToString());
     }
 

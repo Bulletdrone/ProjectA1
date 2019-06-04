@@ -35,7 +35,7 @@ public class Locations : MonoBehaviour
 
     }
 
-    public float[] GetLocation(Location loc)
+    public float[] GetLocation(LocationEnum loc)
     {
         float[] gpsCords = new float[gpsData.GetLength(1)];
         int locInt = (int)loc;

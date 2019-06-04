@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum Location
+public enum LocationEnum
 {
     SintLucasIngang,
     bagelnJuice,
