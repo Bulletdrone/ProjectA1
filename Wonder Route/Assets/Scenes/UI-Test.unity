@@ -2870,6 +2870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1269931041}
   - component: {fileID: 1269931042}
+  - component: {fileID: 1269931043}
   - component: {fileID: 1269931039}
   - component: {fileID: 1269931040}
   m_Layer: 0
@@ -2954,6 +2955,20 @@ MonoBehaviour:
   _lerpSpeed: 0.1
   _maxCameraRangeX: 10
   _maxCameraRangeY: 18
+--- !u!114 &1269931043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269931038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf6d4ab6fd2e0f458e1b2d04fe72f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worldScenes: []
+  spawnLocation: {fileID: 0}
 --- !u!1 &1304633082
 GameObject:
   m_ObjectHideFlags: 0

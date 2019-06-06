@@ -51,7 +51,7 @@ public class TextManager : MonoBehaviour
         text.text = org;
     }
 
-    void LocationText()
+    public void LocationText()
     {
         int locInt = (int)WorldManager.locations;
 
