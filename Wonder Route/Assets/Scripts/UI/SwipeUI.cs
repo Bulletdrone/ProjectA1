@@ -108,6 +108,46 @@ public class SwipeUI : MonoBehaviour
         }
     }
 
+    //void TouchX()
+    //{
+    //    float pointerX = Input.GetAxis("MouseX");
+
+    //    if (Input.touchCount > 0)
+    //    {
+    //        pointerX = Input.touches[0].deltaPosition.x;
+
+    //        _camera.transform.position = new Vector3(_camera.transform.position.x + -pointerX, _camera.transform.position.y, _camera.transform.position.z);
+    //        if (_maxCameraRangeX < _camera.transform.position.x)
+    //        {
+    //            _camera.transform.position = new Vector3(_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+    //        }
+    //        if (-_maxCameraRangeX > _camera.transform.position.x)
+    //        {
+    //            _camera.transform.position = new Vector3(-_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+    //        }
+    //    }
+    //}
+
+    //void TouchY()
+    //{
+    //    float pointerY = Input.GetAxis("MouseY");
+
+    //    if (Input.touchCount > 0)
+    //    {
+    //        pointerY = Input.touches[0].deltaPosition.x;
+
+    //        _camera.transform.position = new Vector3(_camera.transform.position.x + -pointerY, _camera.transform.position.y, _camera.transform.position.z);
+    //        if (_maxCameraRangeX < _camera.transform.position.x)
+    //        {
+    //            _camera.transform.position = new Vector3(_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+    //        }
+    //        if (-_maxCameraRangeX > _camera.transform.position.x)
+    //        {
+    //            _camera.transform.position = new Vector3(-_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+    //        }
+    //    }
+    //}
+
     private Vector3 FindClosest()
     {
         bool first = true;
