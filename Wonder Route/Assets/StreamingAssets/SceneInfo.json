@@ -1,0 +1,28 @@
+{
+  "SceneInfo": [
+    {
+      "locationName": "SintLucas",
+
+      "characterTextTitle": "Het Sint Lucas.",
+      "characterTextDescription": "Sint Lucas is een creatieve school.",
+
+      "topObjectName": "Computer",
+      "topObjectDescription": "Een computer word vaak gebruikt op sint lucas nodig heeft omdat het allemaal programma's heeft.",
+
+      "bottomObjectName": "Hoofd Deur",
+      "bottomObjectDescription": "De Hoofd deur word gebruikt om het gebouw van Sint Lucas in te gaan vanaf de hoofdingang."
+    },
+    {
+      "locationName": "Bagel & Juice",
+
+      "characterTextTitle": "De bagel & juice.",
+      "characterTextDescription": "De bagel & juice is een soort bar waar je bagels en drankjes kan halen.",
+
+      "topObjectName": "Bagel",
+      "topObjectDescription": "Een bagel is een soort broodje in vorn vorm van een donut.",
+
+      "bottomObjectName": "Juice",
+      "bottomObjectDescription": "Juice is een sap drinken, meestal van fruit of iets anders."
+    }
+  ]
+}

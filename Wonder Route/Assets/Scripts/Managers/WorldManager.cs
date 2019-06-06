@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
+    public static LocationEnum locations;
+
     public List<GameObject> worldScenes;
     public Transform spawnLocation;
-    LocationEnum locations;
 
     void InstantiateWorld()
     {

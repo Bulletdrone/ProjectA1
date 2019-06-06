@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,10 @@ public class TextManager : MonoBehaviour
 
     public Text bottomObjectName, bottomObjectDescription;
 
+    private void Start()
+    {
+        SetText();
+    }
 
     /// <summary>
     /// Overwrite a Text string.
@@ -24,6 +29,7 @@ public class TextManager : MonoBehaviour
     public void SetText(Text text, string sentence)
     {
         text.text = sentence;
+        SetText();
     }
 
     /// <summary>
@@ -50,4 +56,53 @@ public class TextManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         text.text = org;
     }
+
+    void SetText()
+    {
+        int locInt = (int)WorldManager.locations;
+
+        //Loading Json and taking the right array of SceneInfo.
+        SceneInfoArray data;
+        string dataPath = Application.streamingAssetsPath + "/SceneInfo.json";
+        string json = File.ReadAllText(dataPath);
+        data = JsonUtility.FromJson<SceneInfoArray>(json);
+        SceneInfo sceneInfo = data.SceneInfo[locInt];
+
+        //Set Text on the UI.
+        locationName.text = sceneInfo.locationName;
+
+        characterTextTitle.text = sceneInfo.characterTextTitle;
+        characterTextDescription.text = sceneInfo.characterTextDescription;
+
+        topObjectName.text = sceneInfo.topObjectName;
+        topObjectDescription.text = sceneInfo.topObjectDescription;
+
+        bottomObjectName.text = sceneInfo.bottomObjectName;
+        bottomObjectDescription.text = sceneInfo.bottomObjectDescription;
+    }
+}
+
+
+
+
+//Set Text Object structure.
+[System.Serializable]
+public struct SceneInfoArray
+{
+    public SceneInfo[] SceneInfo;
+}
+
+[System.Serializable]
+public class SceneInfo
+{
+    public string locationName;
+
+    public string characterTextTitle;
+    public string characterTextDescription;
+
+    public string topObjectName;
+    public string topObjectDescription;
+
+    public string bottomObjectName;
+    public string bottomObjectDescription;
 }
