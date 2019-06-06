@@ -18,18 +18,12 @@ public class TextManager : MonoBehaviour
 
     public Text bottomObjectName, bottomObjectDescription;
 
-    private void Start()
-    {
-        SetText();
-    }
-
     /// <summary>
     /// Overwrite a Text string.
     /// </summary>
     public void SetText(Text text, string sentence)
     {
         text.text = sentence;
-        SetText();
     }
 
     /// <summary>
@@ -57,7 +51,7 @@ public class TextManager : MonoBehaviour
         text.text = org;
     }
 
-    void SetText()
+    void LocationText()
     {
         int locInt = (int)WorldManager.locations;
 
