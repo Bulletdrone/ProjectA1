@@ -25,12 +25,22 @@ public class SwipeUI : MonoBehaviour
     [SerializeField]
     private float _maxCameraRangeY;
 
+    [SerializeField]
+    private float _camSpeedX;
+
+    [SerializeField]
+    private float _camSpeedY;
+
+    [SerializeField]
+    private float _swipeDirectionAccuracy;
+
     private Vector3 _currentLocation;
     private Vector3 _target;
     private int _current;
     private bool _LerpToTarget;
-    private bool _firstInputX =false;
-    private bool _firstInputY =false;
+    private bool _firstInputX = false;
+    private bool _firstInputY = false;
+    private bool _onCooldown;
 
 
     void Start()
@@ -41,15 +51,25 @@ public class SwipeUI : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            _onCooldown = true;
+            Invoke("Cooldown", 0.01f);
+        }
+
+        if (_onCooldown)
+        {
+            return;
+        }
 
         if (Input.GetKey(KeyCode.Mouse0) && _canMoveX[_current] && _canMoveY[_current])
         {
-            if ((Input.GetAxisRaw("Mouse X") < 0 || Input.GetAxisRaw("Mouse X") > 0) && !_firstInputY)
+            if ((Input.GetAxisRaw("Mouse X") < -_swipeDirectionAccuracy || Input.GetAxisRaw("Mouse X") > _swipeDirectionAccuracy) && !_firstInputY)
             {
                 _firstInputX = true;
                 MouseX();
             }
-            if ((Input.GetAxisRaw("Mouse Y") < 0 || Input.GetAxisRaw("Mouse Y") > 0) && !_firstInputX)
+            if ((Input.GetAxisRaw("Mouse Y") < -_swipeDirectionAccuracy || Input.GetAxisRaw("Mouse Y") > _swipeDirectionAccuracy) && !_firstInputX)
             {
                 _firstInputY = true;
                 MouseY();
@@ -69,6 +89,7 @@ public class SwipeUI : MonoBehaviour
 
         if (!Input.GetKey(KeyCode.Mouse0))
         {
+            _target = FindClosest();
             LerpClosest(_target);
         }
 
@@ -82,7 +103,7 @@ public class SwipeUI : MonoBehaviour
 
     void MouseX()
     {
-        float dragX = Input.GetAxisRaw("Mouse X");
+        float dragX = Input.GetAxisRaw("Mouse X") * _camSpeedX;
         _camera.transform.position = new Vector3(_camera.transform.position.x + -dragX, _camera.transform.position.y, _camera.transform.position.z);
         if (_maxCameraRangeX < _camera.transform.position.x)
         {
@@ -96,7 +117,7 @@ public class SwipeUI : MonoBehaviour
 
     void MouseY()
     {
-        float dragY = Input.GetAxisRaw("Mouse Y");
+        float dragY = Input.GetAxisRaw("Mouse Y") * _camSpeedY;
         _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _camera.transform.position.z + -dragY);
         if (_maxCameraRangeY < _camera.transform.position.z)
         {
@@ -108,45 +129,10 @@ public class SwipeUI : MonoBehaviour
         }
     }
 
-    //void TouchX()
-    //{
-    //    float pointerX = Input.GetAxis("MouseX");
-
-    //    if (Input.touchCount > 0)
-    //    {
-    //        pointerX = Input.touches[0].deltaPosition.x;
-
-    //        _camera.transform.position = new Vector3(_camera.transform.position.x + -pointerX, _camera.transform.position.y, _camera.transform.position.z);
-    //        if (_maxCameraRangeX < _camera.transform.position.x)
-    //        {
-    //            _camera.transform.position = new Vector3(_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
-    //        }
-    //        if (-_maxCameraRangeX > _camera.transform.position.x)
-    //        {
-    //            _camera.transform.position = new Vector3(-_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
-    //        }
-    //    }
-    //}
-
-    //void TouchY()
-    //{
-    //    float pointerY = Input.GetAxis("MouseY");
-
-    //    if (Input.touchCount > 0)
-    //    {
-    //        pointerY = Input.touches[0].deltaPosition.x;
-
-    //        _camera.transform.position = new Vector3(_camera.transform.position.x + -pointerY, _camera.transform.position.y, _camera.transform.position.z);
-    //        if (_maxCameraRangeX < _camera.transform.position.x)
-    //        {
-    //            _camera.transform.position = new Vector3(_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
-    //        }
-    //        if (-_maxCameraRangeX > _camera.transform.position.x)
-    //        {
-    //            _camera.transform.position = new Vector3(-_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
-    //        }
-    //    }
-    //}
+    void Cooldown()
+    {
+        _onCooldown = false;
+    }
 
     private Vector3 FindClosest()
     {
