@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!20 &156295197 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20155940112608238, guid: c10877f7cd5764de18d46d7b777d1faa,
+    type: 3}
+  m_PrefabInstance: {fileID: 867130570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420320885
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +396,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8728679302061500820}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1889504533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1772147192650458, guid: c10877f7cd5764de18d46d7b777d1faa,
+    type: 3}
+  m_PrefabInstance: {fileID: 867130570}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1889504534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889504533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4837fbb0d76e1d14da43a3815f28e4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cam: {fileID: 156295197}
+  _sightDistance: 100
 --- !u!1 &2067425960
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf6d4ab6fd2e0f458e1b2d04fe72f21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _textManager: {fileID: 0}
   worldScenes:
   - {fileID: 1177420076}
   - {fileID: 1509654603}

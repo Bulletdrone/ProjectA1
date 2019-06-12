@@ -69,11 +69,13 @@ public class SwipeUI : MonoBehaviour
                 _firstInputX = true;
                 MouseX();
             }
+
             if ((Input.GetAxisRaw("Mouse Y") < -_swipeDirectionAccuracy || Input.GetAxisRaw("Mouse Y") > _swipeDirectionAccuracy) && !_firstInputX)
             {
                 _firstInputY = true;
                 MouseY();
             }
+
             return;
         }
 
