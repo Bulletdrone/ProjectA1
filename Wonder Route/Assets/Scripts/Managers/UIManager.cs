@@ -5,11 +5,18 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Image locationSprite;
+    public Image locationImage;
+    public Image characterImage;
 
-    public Image characterSprite;
+    public Image topObjectImage, bottomObjectImage;
+    private Sprite topSprite, bottomSprite;
 
-    public Image topObject, bottomObject;
+    private void Start()
+    {
+        locationUI(0);
+        SetImage(topObjectImage, topSprite);
+        SetImage(bottomObjectImage, bottomSprite);
+    }
 
     /// <summary>
     /// Overwrite the Image's Sprite.
@@ -34,5 +41,16 @@ public class UIManager : MonoBehaviour
         image.sprite = sprite;
         yield return new WaitForSeconds(duration);
         image.sprite = org;
+    }
+
+    public void locationUI(int locInt)
+    {
+        string path = "UISprites/";
+
+        locationImage.sprite = Resources.Load<Sprite>(path + locInt + "LocationSprite");
+        characterImage.sprite = Resources.Load<Sprite>(path + locInt + "CharacterSprite");
+
+        topSprite = Resources.Load<Sprite>(path + locInt + "TopObject");
+        bottomSprite = Resources.Load<Sprite>(path + locInt + "BottomObject");
     }
 }

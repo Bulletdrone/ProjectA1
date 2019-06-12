@@ -18,6 +18,11 @@ public class TextManager : MonoBehaviour
 
     public Text bottomObjectName, bottomObjectDescription;
 
+    private void Start()
+    {
+        LocationText(1);
+    }
+
     /// <summary>
     /// Overwrite a Text string.
     /// </summary>
@@ -51,10 +56,8 @@ public class TextManager : MonoBehaviour
         text.text = org;
     }
 
-    public void LocationText()
+    public void LocationText(int locInt)
     {
-        int locInt = (int)WorldManager.locations;
-
         //Loading Json and taking the right array of SceneInfo.
         SceneInfoArray data;
         string dataPath = Application.streamingAssetsPath + "/SceneInfo.json";
@@ -73,9 +76,10 @@ public class TextManager : MonoBehaviour
 
         bottomObjectName.text = sceneInfo.bottomObjectName;
         bottomObjectDescription.text = sceneInfo.bottomObjectDescription;
+
+        destinationText.text = sceneInfo.nextDestination;
     }
 }
-
 
 
 
@@ -99,4 +103,6 @@ public class SceneInfo
 
     public string bottomObjectName;
     public string bottomObjectDescription;
+
+    public string nextDestination;
 }

@@ -10,7 +10,9 @@
       "topObjectDescription": "Een computer word vaak gebruikt op sint lucas nodig heeft omdat het allemaal programma's heeft.",
 
       "bottomObjectName": "Hoofd Deur",
-      "bottomObjectDescription": "De Hoofd deur word gebruikt om het gebouw van Sint Lucas in te gaan vanaf de hoofdingang."
+      "bottomObjectDescription": "De Hoofd deur word gebruikt om het gebouw van Sint Lucas in te gaan vanaf de hoofdingang.",
+
+      "nextDestination": "Bagel & Juice"
     },
     {
       "locationName": "Bagel & Juice",
@@ -22,7 +24,9 @@
       "topObjectDescription": "Een bagel is een soort broodje in vorn vorm van een donut.",
 
       "bottomObjectName": "Juice",
-      "bottomObjectDescription": "Juice is een sap drinken, meestal van fruit of iets anders."
+      "bottomObjectDescription": "Juice is een sap drinken, meestal van fruit of iets anders.",
+
+      "nextDestination":  "Strijp Station"
     }
   ]
 }

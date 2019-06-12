@@ -11,28 +11,13 @@ public class Locations : MonoBehaviour
     private void Start()
     {
         gpsData = new float[4, 2];
+        GetGPSData();
 
-        SetLocation();
-    }
-
-    public void SetLocation()
-    {
-        //Sintlucas Ingang.
-        gpsData[0, 0] = 51.44709f;
-        gpsData[0, 1] = 5.45474f;
-        
-        //bagelwinkel.
-        gpsData[1, 0] = 51.44762f;
-        gpsData[1, 1] = 5.45506f;
-
-        //Sportcomplex
-        gpsData[2, 0] = 51.44799f;
-        gpsData[2, 1] = 5.45666f;
-
-        //Stationstrijp
-        gpsData[3, 0] = 51.44963f;
-        gpsData[3, 1] = 5.45770f;
-
+        for (int i = 0; i < gpsData.GetLength(0); i++)
+        {
+            Debug.Log(gpsData[i, 0]);
+            Debug.Log(gpsData[i, 1]);
+        }
     }
 
     public float[] GetLocation(LocationEnum loc)
@@ -42,7 +27,7 @@ public class Locations : MonoBehaviour
 
         for (int i = 0; i < gpsCords.Length; i++)
         {
-            gpsCords[i] =  gpsData[locInt, i];
+            gpsCords[i] = gpsData[locInt, i];
         }
 
         return gpsCords;
@@ -55,9 +40,33 @@ public class Locations : MonoBehaviour
         //public string locName;
     }
 
-    [System.Serializable]
-    public struct LocationCollection
+    public void GetGPSData()
     {
-        public LocationInfo[] locationCollection;
+        GPSDataArray data;
+        string dataPath = Application.streamingAssetsPath + "/GPSdata.json";
+        string json = File.ReadAllText(dataPath);
+        data = JsonUtility.FromJson<GPSDataArray>(json);
+
+        for (int i = 0; i < gpsData.GetLength(0); i++)
+        {
+            gpsData[i, 0] = data.GPSdata[i].longtitude;
+            gpsData[i, 1] = data.GPSdata[i].latitude;
+        }
     }
+}
+
+
+
+//Set GPS data structure.
+[System.Serializable]
+public struct GPSDataArray
+{
+    public GPSdata[] GPSdata;
+}
+
+[System.Serializable]
+public class GPSdata
+{
+    public float longtitude;
+    public float latitude;
 }

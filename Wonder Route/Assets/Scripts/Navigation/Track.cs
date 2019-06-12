@@ -9,8 +9,7 @@ public class Track : MonoBehaviour
 
     public int maxDistance;
 
-    [SerializeField]
-    private TextManager textManager;
+    [SerializeField] private TextManager textManager;
 
     public void Tracker()
     {
