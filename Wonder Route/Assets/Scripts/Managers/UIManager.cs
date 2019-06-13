@@ -9,14 +9,6 @@ public class UIManager : MonoBehaviour
     public Image characterImage;
 
     public Image topObjectImage, bottomObjectImage;
-    private Sprite topSprite, bottomSprite;
-
-    private void Start()
-    {
-        locationUI(0);
-        SetImage(topObjectImage, topSprite);
-        SetImage(bottomObjectImage, bottomSprite);
-    }
 
     /// <summary>
     /// Overwrite the Image's Sprite.
@@ -34,7 +26,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(TempImageIE(image, sprite, duration));
     }
 
-
     IEnumerator TempImageIE(Image image, Sprite sprite, float duration)
     {
         Sprite org = image.sprite;
@@ -47,10 +38,31 @@ public class UIManager : MonoBehaviour
     {
         string path = "UISprites/";
 
-        locationImage.sprite = Resources.Load<Sprite>(path + locInt + "LocationSprite");
-        characterImage.sprite = Resources.Load<Sprite>(path + locInt + "CharacterSprite");
+        locationImage.sprite = Resources.Load<Sprite>(path + "Locations/" + locInt);
+        characterImage.sprite = Resources.Load<Sprite>(path + "Characters/" + locInt);
 
-        topSprite = Resources.Load<Sprite>(path + locInt + "TopObject");
-        bottomSprite = Resources.Load<Sprite>(path + locInt + "BottomObject");
+        topObjectImage.sprite = Resources.Load<Sprite>(path + "TopObjects/" + locInt);
+        bottomObjectImage.sprite = Resources.Load<Sprite>(path + "BottomObjects/" + locInt);
+    }
+
+    public void SetObjectSprites(bool top, bool bottom)
+    {
+        if (top)
+        {
+            topObjectImage.color = Color.white;
+        }
+        else
+        {
+            topObjectImage.color = Color.black;
+        }
+
+        if (bottom)
+        {
+            bottomObjectImage.color = Color.white;
+        }
+        else
+        {
+            bottomObjectImage.color = Color.black;
+        }
     }
 }

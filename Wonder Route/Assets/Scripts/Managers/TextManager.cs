@@ -10,6 +10,7 @@ public class TextManager : MonoBehaviour
     public Text statusText;
 
     public Text locationName;
+    public Text startLocationText;
 
     public Text characterTextTitle;
     public Text characterTextDescription;
@@ -18,10 +19,10 @@ public class TextManager : MonoBehaviour
 
     public Text bottomObjectName, bottomObjectDescription;
 
-    private void Start()
-    {
-        LocationText(1);
-    }
+    private string startLocationString;
+
+    private string topObjectNameString, topObjectDescriptionString;
+    private string bottomObjectNameString, bottomObjectDescriptionString;
 
     /// <summary>
     /// Overwrite a Text string.
@@ -71,13 +72,38 @@ public class TextManager : MonoBehaviour
         characterTextTitle.text = sceneInfo.characterTextTitle;
         characterTextDescription.text = sceneInfo.characterTextDescription;
 
-        topObjectName.text = sceneInfo.topObjectName;
-        topObjectDescription.text = sceneInfo.topObjectDescription;
+        topObjectNameString = sceneInfo.topObjectName;
+        topObjectDescriptionString = sceneInfo.topObjectDescription;
 
-        bottomObjectName.text = sceneInfo.bottomObjectName;
-        bottomObjectDescription.text = sceneInfo.bottomObjectDescription;
+        bottomObjectNameString = sceneInfo.bottomObjectName;
+        bottomObjectDescriptionString = sceneInfo.bottomObjectDescription;
 
         destinationText.text = sceneInfo.nextDestination;
+    }
+
+    public void SetObjectTexts(bool top, bool bottom)
+    {
+        if (top)
+        {
+            SetText(topObjectName, topObjectNameString);
+            SetText(topObjectDescription, topObjectDescriptionString);
+        }
+        else
+        {
+            SetText(topObjectName, "??");
+            SetText(topObjectDescription, "?????");
+        }
+
+        if (bottom)
+        {
+            SetText(bottomObjectName, bottomObjectNameString);
+            SetText(bottomObjectDescription, bottomObjectDescriptionString);
+        }
+        else
+        {
+            SetText(bottomObjectName, "??");
+            SetText(bottomObjectDescription, "?????");
+        }
     }
 }
 
@@ -105,4 +131,5 @@ public class SceneInfo
     public string bottomObjectDescription;
 
     public string nextDestination;
+    public string startLocation;
 }

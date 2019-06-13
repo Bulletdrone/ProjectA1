@@ -12,7 +12,8 @@
       "bottomObjectName": "Hoofd Deur",
       "bottomObjectDescription": "De Hoofd deur word gebruikt om het gebouw van Sint Lucas in te gaan vanaf de hoofdingang.",
 
-      "nextDestination": "Bagel & Juice"
+      "nextDestination": "Bagel & Juice",
+      "startLocation": "Loop naar de ingang."
     },
     {
       "locationName": "Bagel & Juice",
@@ -26,7 +27,8 @@
       "bottomObjectName": "Juice",
       "bottomObjectDescription": "Juice is een sap drinken, meestal van fruit of iets anders.",
 
-      "nextDestination":  "Strijp Station"
+      "nextDestination": "Strijp Station",
+      "startLocation": "Loop naar het terras."
     }
   ]
 }

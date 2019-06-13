@@ -33,13 +33,6 @@ public class Locations : MonoBehaviour
         return gpsCords;
     }
 
-    [System.Serializable]
-    public class LocationInfo
-    {
-        public int[] cords;
-        //public string locName;
-    }
-
     public void GetGPSData()
     {
         GPSDataArray data;
