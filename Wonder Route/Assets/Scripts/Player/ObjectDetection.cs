@@ -26,7 +26,15 @@ public class ObjectDetection : MonoBehaviour
         if (Physics.Raycast(forwardRay, out hit, _sightDistance))
         {
             Debug.DrawRay(_cam.transform.position, hit.point, Color.green);
-            hit.collider.GetComponent<Animator>().SetTrigger("StartAnimation");
+            Animator animator = hit.collider.GetComponent<Animator>();
+
+            if (animator == null)
+            {
+                //change textt
+                return;
+            }
+
+            animator.SetTrigger("StartAnimation");
         }
     }
 }
