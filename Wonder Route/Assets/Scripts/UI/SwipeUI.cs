@@ -5,7 +5,7 @@ using UnityEngine;
 public class SwipeUI : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _camera;
+    private GameObject _canvas;
 
     [SerializeField]
     private List<Vector3> _canvasLocations;
@@ -45,7 +45,7 @@ public class SwipeUI : MonoBehaviour
 
     void Start()
     {
-        _target = _camera.transform.position;
+        _target = _canvas.transform.position;
         LerpClosest(FindClosest());
     }
 
@@ -105,29 +105,29 @@ public class SwipeUI : MonoBehaviour
 
     void MouseX()
     {
-        float dragX = Input.GetAxisRaw("Mouse X") * _camSpeedX;
-        _camera.transform.position = new Vector3(_camera.transform.position.x + -dragX, _camera.transform.position.y, _camera.transform.position.z);
-        if (_maxCameraRangeX < _camera.transform.position.x)
+        float dragX = -Input.GetAxisRaw("Mouse X") * _camSpeedX;
+        _canvas.transform.position = new Vector3(_canvas.transform.position.x + -dragX, _canvas.transform.position.y, _canvas.transform.position.z);
+        if (_maxCameraRangeX < _canvas.transform.position.x)
         {
-            _camera.transform.position = new Vector3(_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+            _canvas.transform.position = new Vector3(_maxCameraRangeX, _canvas.transform.position.y, _canvas.transform.position.z);
         }
-        if (-_maxCameraRangeX > _camera.transform.position.x)
+        if (-_maxCameraRangeX > _canvas.transform.position.x)
         {
-            _camera.transform.position = new Vector3(-_maxCameraRangeX, _camera.transform.position.y, _camera.transform.position.z);
+            _canvas.transform.position = new Vector3(-_maxCameraRangeX, _canvas.transform.position.y, _canvas.transform.position.z);
         }
     }
 
     void MouseY()
     {
-        float dragY = Input.GetAxisRaw("Mouse Y") * _camSpeedY;
-        _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _camera.transform.position.z + -dragY);
-        if (_maxCameraRangeY < _camera.transform.position.z)
+        float dragY = -Input.GetAxisRaw("Mouse Y") * _camSpeedY;
+        _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, _canvas.transform.position.z + -dragY);
+        if (_maxCameraRangeY < _canvas.transform.position.z)
         {
-            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _maxCameraRangeY);
+            _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, _maxCameraRangeY);
         }
-        if (-_maxCameraRangeY > _camera.transform.position.z)
+        if (-_maxCameraRangeY > _canvas.transform.position.z)
         {
-            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, -_maxCameraRangeY);
+            _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, -_maxCameraRangeY);
         }
     }
 
@@ -139,11 +139,11 @@ public class SwipeUI : MonoBehaviour
     private Vector3 FindClosest()
     {
         bool first = true;
-        var closestLocation = _camera.transform.position;
+        var closestLocation = _canvas.transform.position;
         float smallestDistance = 0;
         for (int i = 0; i < _canvasLocations.Count; i++)
         {
-            var currentDistance = Vector3.Distance(_canvasLocations[i], _camera.transform.position);
+            var currentDistance = Vector3.Distance(_canvasLocations[i], _canvas.transform.position);
             if (first || smallestDistance > currentDistance)
             {
                 first = false;
@@ -157,6 +157,6 @@ public class SwipeUI : MonoBehaviour
 
     void LerpClosest(Vector3 closest)
     {
-        _camera.transform.position = Vector3.Lerp(_camera.transform.position, closest, _lerpSpeed);
+        _canvas.transform.position = Vector3.Lerp(_canvas.transform.position, closest, _lerpSpeed);
     }
 }
