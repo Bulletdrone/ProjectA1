@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class SwipeUI : MonoBehaviour
@@ -120,14 +121,14 @@ public class SwipeUI : MonoBehaviour
     void MouseY()
     {
         float dragY = -Input.GetAxisRaw("Mouse Y") * _camSpeedY;
-        _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, _canvas.transform.position.z + -dragY);
-        if (_maxCameraRangeY < _canvas.transform.position.z)
+        _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y + -dragY, _canvas.transform.position.z);
+        if (_maxCameraRangeY < _canvas.transform.position.y)
         {
-            _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, _maxCameraRangeY);
+            _canvas.transform.position = new Vector3(_canvas.transform.position.x, _maxCameraRangeY, _canvas.transform.position.z);
         }
-        if (-_maxCameraRangeY > _canvas.transform.position.z)
+        if (-_maxCameraRangeY > _canvas.transform.position.y)
         {
-            _canvas.transform.position = new Vector3(_canvas.transform.position.x, _canvas.transform.position.y, -_maxCameraRangeY);
+            _canvas.transform.position = new Vector3(_canvas.transform.position.x, -_maxCameraRangeY, _canvas.transform.position.z);
         }
     }
 
