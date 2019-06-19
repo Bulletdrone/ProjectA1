@@ -61,7 +61,6 @@ public class TextManager : MonoBehaviour
     {
         //Loading Json and taking the right array of SceneInfo.
         SceneInfoArray data;
-        string dataPath = ("Resources/Json/SceneInfo.json");
         TextAsset ta = Resources.Load<TextAsset>("Json/SceneInfo");
         string content = ta.ToString();
         //string json = File.ReadAllText(content);

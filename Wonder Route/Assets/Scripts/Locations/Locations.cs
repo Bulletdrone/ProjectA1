@@ -33,19 +33,19 @@ public class Locations : MonoBehaviour
         return gpsCords;
     }
 
-//    public void GetGPSData()
-//    {
-//        GPSDataArray data;
-//        string dataPath = ("Resources/Json/GPSdata.json");
-//        string json = File.ReadAllText(dataPath);
-//        data = JsonUtility.FromJson<GPSDataArray>(json);
+    public void GetGPSData()
+    {
+        GPSDataArray data;
+        TextAsset ta = Resources.Load<TextAsset>("Json/GPSdata");
+        string content = ta.ToString();
+        data = JsonUtility.FromJson<GPSDataArray>(content);
 
-//        for (int i = 0; i < gpsData.GetLength(0); i++)
-//        {
-//            gpsData[i, 0] = data.GPSdata[i].longtitude;
-//            gpsData[i, 1] = data.GPSdata[i].latitude;
-//        }
-//    }
+        for (int i = 0; i < gpsData.GetLength(0); i++)
+        {
+            gpsData[i, 0] = data.GPSdata[i].longtitude;
+            gpsData[i, 1] = data.GPSdata[i].latitude;
+        }
+    }
 }
 
 
