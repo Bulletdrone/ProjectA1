@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Jacobus
+  m_Name: Kruikje
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ac19b2fbe55cb6a42809c3522f99a364, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5edc16b0e80bd0e479ab733aa6e6ba63, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,19 +40,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ad672e52a00331f408ee31cab0cc2c23, type: 3}
+        m_Texture: {fileID: 2800000, guid: fcf1dd83780778148a571c1c20e0d009, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: e4e62405d7a1ba24687756751064d632, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4317bfeee8b732e41bedc5e9ea929400, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 43760c9737d9bb947956b5fb804526bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9a17b1c77295a1a4eb5bd5b42c03981f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: ea89b1f8f927e26419d85bb85650953c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 72f2f3f40d4e17349948ce09d13ab473, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
