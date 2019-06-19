@@ -2,9 +2,19 @@
 
 public enum LocationEnum
 {
-    SintLucasIngang,
-    bagelnJuice,
-    Sportcomplex,
-    StationStrijp,
+    Intro,
+    BolwerkSintJan,
+    Boompoort,
+    Citadel,
+    Kruithuis,
+    BastionMuntel,
+    HinthamerPoort,
+    BastionSintAnthonie,
+    BastionBaselaar,
+    Judastoren,
+    BastionOranje,
+    BastionVught,
+    Pieckepoort,
+    BastionMaria,
     End
 };

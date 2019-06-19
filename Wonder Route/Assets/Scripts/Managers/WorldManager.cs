@@ -7,8 +7,8 @@ using UnityEngine;
 public class WorldManager : MonoBehaviour
 {
     public static LocationEnum locations;
+    public int locationInt;
     public bool[,] isItemUnlocked;
-
 
     public TextManager _textManager;
     public UIManager _uiManager;
@@ -18,11 +18,18 @@ public class WorldManager : MonoBehaviour
     public List<GameObject> worldScenes;
     public Transform spawnLocation;
 
+    public void SetLocationInt(int count)
+    {
+        locationInt = locationInt + count;
+        Debug.Log(locationInt);
+        locations = (LocationEnum)locationInt;
+        InstantiateWorld();
+    }
+
     void Start()
     {
-        locations = LocationEnum.SintLucasIngang;
         isItemUnlocked = new bool[(int)LocationEnum.End, 2];
-        InstantiateWorld();
+        SetLocationInt(0);
     }
 
     void InstantiateWorld()
@@ -31,12 +38,14 @@ public class WorldManager : MonoBehaviour
         Debug.Log(locInt);
         //Instantiate(worldScenes[locInt], spawnLocation.position, spawnLocation.rotation);
         _textManager.LocationText(locInt);
-        _uiManager.locationUI(locInt);
+        _uiManager.LocationUI(locInt);
         UnlockedItems(locInt);
     }
 
     void UnlockedItems(int locInt)
     {
+
+
         bool top = isItemUnlocked[locInt, 0];
         bool bottom = isItemUnlocked[locInt, 1];
 

@@ -78,7 +78,8 @@ public class TextManager : MonoBehaviour
         bottomObjectNameString = sceneInfo.bottomObjectName;
         bottomObjectDescriptionString = sceneInfo.bottomObjectDescription;
 
-        destinationText.text = sceneInfo.nextDestination;
+        //startLocationText.text = sceneInfo.startLocation + " en druk op deze knop.";
+        //destinationText.text = sceneInfo.nextDestination;
     }
 
     public void SetObjectTexts(bool top, bool bottom)

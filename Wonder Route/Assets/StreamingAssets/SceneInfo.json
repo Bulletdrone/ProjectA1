@@ -1,34 +1,214 @@
 {
   "SceneInfo": [
     {
-      "locationName": "SintLucas",
+      "locationName": "Intro",
 
-      "characterTextTitle": "Het Sint Lucas.",
-      "characterTextDescription": "Sint Lucas is een creatieve school.",
+      "characterTextTitle": "Intro.",
+      "characterTextDescription": "Den Bosch is al vanaf haar ontstaan in de twaalfde eeuw op de noordelijke grens van Brabant. De stad was omringt door muren, kanonnen en water om indringers tegen te gaan. Omdat het geschud steeds zwaarder werd, moest de verdediging ook steeds beter worden. De eenvoudige muren werden steeds dikker en hoger. Langzaam bouwde de stad zich uit met complexe militaire gebouwen zoals bastions en ravelijnen.",
 
-      "topObjectName": "Computer",
-      "topObjectDescription": "Een computer word vaak gebruikt op sint lucas nodig heeft omdat het allemaal programma's heeft.",
+      "topObjectName": "-",
+      "topObjectDescription": "-",
 
-      "bottomObjectName": "Hoofd Deur",
-      "bottomObjectDescription": "De Hoofd deur word gebruikt om het gebouw van Sint Lucas in te gaan vanaf de hoofdingang.",
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
 
-      "nextDestination": "Bagel & Juice",
-      "startLocation": "Loop naar de ingang."
+      "nextDestination": "Bolwerk Sint-Jan",
+      "startLocation": "Loop naar Bolwerk Sint-Jan"
     },
     {
-      "locationName": "Bagel & Juice",
+      "locationName": "Bolwerk Sint-Jan",
 
-      "characterTextTitle": "De bagel & juice.",
-      "characterTextDescription": "De bagel & juice is een soort bar waar je bagels en drankjes kan halen.",
+      "characterTextTitle": "Bolwerk Sint-Jan",
+      "characterTextDescription": "Op deze plek stond ooit de 14e eeuwse stadspoort: Koepoort. Dit was de uitvalspoort van de stad richting Vlijmen. De poort was een kwetsbaar punt voor de verdediging van de stad, daarom werd in 1528 het Bolwerk Sint-Jan aangelegd. Het was een driehoekig verdedigingswerk met een nieuwe stadspoort: de Sint Janspoort. Een pelgrim vroeg me of iemand zijn Jacobus beeld kan vinden. Misschien kan jij hem helpen, maar wees snel, de Spanjaarden kunnen elk moment aanvallen.",
 
-      "topObjectName": "Bagel",
-      "topObjectDescription": "Een bagel is een soort broodje in vorn vorm van een donut.",
+      "topObjectName": "Jacobus",
+      "topObjectDescription": "Jacobus is afgebeeld als apostel met op zijn borst de Jacobschelp. Het beeld komt waarschijnlijk oorspronkelijk uit een kerk of klooster.",
 
-      "bottomObjectName": "Juice",
-      "bottomObjectDescription": "Juice is een sap drinken, meestal van fruit of iets anders.",
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
 
-      "nextDestination": "Strijp Station",
-      "startLocation": "Loop naar het terras."
-    }
+      "nextDestination": "Boompoort",
+      "startLocation": "Loop naar de Boompoort"
+    },
+	{
+      "locationName": "Boompoort",
+
+      "characterTextTitle": "Boompoort",
+      "characterTextDescription": "Dit was de belangrijkste waterpoort die toegang gaf tot de haven De boompoort. De naam komt van de grote balk of boom, waarmee de poort werd afgesloten. Zo konden er geen schepen meer de haven in. Op de plaats van de boompoort ligt nu de ophaalbrug de Boombrug. Ik wist zeker dat ik mijn Lakenlood hier ergens had neergelegd. Misschien kan jij ze vinden?",
+
+      "topObjectName": "Lakenlood",
+      "topObjectDescription": "Het stadsbestuur garandeerde hiermee de kwaliteit van het verkochte laken. Het lakenlood werd aan de lakens gebonden. Het is een loden plaatje met hierop het teken van de stad.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Citadel",
+      "startLocation": "Loop naar de Citadel"
+	},
+	{
+      "locationName": "Citadel",
+
+      "characterTextTitle": "Citadel",
+      "characterTextDescription": "In 1629 werd Den Bosch belegerd door de troepen van prins Frederik Hendrik. Na een beleg van 5 maanden valt de stad in de handen van de Nederlandse Republiek, niet lang hierna gaf de Republiek de opdracht om op deze plek een fort te bouwen. Dit fort werd uiteindelijk een vijfhoekige schans met Bastions en daaromheen een brede gracht. Een Pelgrim is zijn insigne kwijt, misschien kan je helpen met zoeken?",
+
+      "topObjectName": "Pelgrimsinsigne",
+      "topObjectDescription": "Dit insigne is een van de oudste en toont binnen de kerk; Maria, Johannes en een pelgrim.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Kruithuis",
+      "startLocation": "Loop naar het Kruithuis"
+	},
+	{
+      "locationName": "Kruithuis",
+
+      "characterTextTitle": "Kruithuis",
+      "characterTextDescription": "Dit gebouw diende als opbergplaats voor de munitie van de stad. Het gebouw heeft een lichte constructie. Dit is gedaan om in geval van een explosie de druk omhoog te leiden waardoor er geen schade aan de stad ontstond. Ik heb hier ergens een aantal tegels liggen, kan jij die even pakken. En een beetje snel graag.",
+
+      "topObjectName": "Tegel Vrouw Minne",
+      "topObjectDescription": "Op deze keramische tegel is Vrouw Minne gezien. Ze wordt naakt afgebeeld met enkel een paar schoenen aan. Vrouw Minnen is symbool voor onkuisheid, de tegel is dus bedoeld als waarschuwing om niet te vallen voor lust en verleiding. De tegel komt uit de 16e eeuw.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Muntel",
+      "startLocation": "Loop naar Bastion Muntel"
+	},
+	{
+      "locationName": "Bastion Muntel",
+
+      "characterTextTitle": "Bastion Muntel",
+      "characterTextDescription": "Deze Bastion werd aangelegd bij de uitbreiding van de tweede ommuring in 1618. Er stond ook een molen “De Phoenix”. De Bastion en de molen werden gesloopt in 1887. Ik kan mijn andere schaats niet vinden. Kan jij me misschien helpen?",
+
+      "topObjectName": "Gils",
+      "topObjectDescription": "In de middeleeuwen werden schaatsen vaak gemaakt van beenderen van runderen of paarden. Deze zogenaamde gilsen werden onder de schoenen gebonden en met behulp van stokken kon men zich voort bewegen.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Hinthamer Poort",
+      "startLocation": "Loop naar Hinthamer Poort"
+	},
+	{
+      "locationName": "Hinthamer Poort",
+
+      "characterTextTitle": "Hinthamer Poort",
+      "characterTextDescription": "De Hinthamer poort werd in 1632 gebouwd en gesloopt in 1890. De poort was nodig omdat de stad zich steeds verder uitbreidde in de oostelijke richting. Ik heb mijn braadspit hier ergens neergelegd, maar nu kan ik hem nergens meer vinden. Misschien kan jij me helpen?",
+
+      "topObjectName": "Braadspit",
+      "topObjectDescription": "In de late middeleeuwen kookte en verwarmde men nog door middel van open vuur. Vlees werd gebraden op een braadspit en afkomend vet werd met een vetvanger opgevangen.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Sint Anthonie",
+      "startLocation": "Loop naar Bastion Sint Anthonie"
+	},
+	{
+      "locationName": "Bastion Sint Anthonie",
+
+      "characterTextTitle": "Bastion Sint Anthonie",
+      "characterTextDescription": "Bastion Sint Anthonie werd gebouwd in 1618 als onderdeel van de Bossche vesting. De gracht die om het bastion liep is in 1908 gedempt. De Bastion is in 2006 gerestaureerd. Mensen hebben mijn Insigne van Thomas Becket afgepakt en weggegooid, kan jij misschien helpen met het Insigne terug vinden?",
+
+      "topObjectName": "Insigne Thomas Becket",
+      "topObjectDescription": "In 1170 werd aartsbisschop Thomas Becket vermoord. Door zijn dood gold hij vrijwel direct als martelaar van het christelijk geloof en in 1173 werd hij heilig verklaard. De datering van dit Insigne is rond 1400 ",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Baselaar",
+      "startLocation": "Loop naar Bastion Baselaar"
+	},
+	{
+      "locationName": "Bastion Baselaar",
+
+      "characterTextTitle": "Bastion Baselaar",
+      "characterTextDescription": "Dit verdedigingswerk is gebouwd in het begin van de 17e eeuw. Bij het bouwen van een parkeergarage in 2011 zijn de resten van 60 Franse soldaten hier aangetroffen. Bastion Baselaar werd in 1794-1795 tijdelijk gebruikt voor het begraven van Franse Soldaten. Ik ben mijn been kwijt. Graag wil ik deze terug in mijn graf hebben, kan je mee helpen zoeken? Dan laat ik je misschien nog leven.",
+
+      "topObjectName": "Sleutelbeen",
+      "topObjectDescription": "Sleutelbeen van een Franse Soldaat die hier in 1794 is gesneuveld.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "De Judastoren",
+      "startLocation": "Loop naar de Judastoren"
+	},
+	{
+      "locationName": "Judastoren",
+
+      "characterTextTitle": "Judastoren",
+      "characterTextDescription": "De Judastoren met zijn dikke muren is oorspronkelijk een muurtoren die in de 16e eeuw omgevormd werd tot rondeel. In de 19e eeuw is het verbouwd tot kruitmagazijn. Grr! Ik ben mijn schelp kwijt…",
+
+      "topObjectName": "Jacobschelp",
+      "topObjectDescription": "Jacobschelpen is het herkenningsteken voor de pelgrims. Ze gebruikten de schelpen vooral als accessoires op kleding en werd bevestigd aan bijvoorbeeld hoeden en tassen.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Oranje",
+      "startLocation": "Loop naar Bastion Oranje"
+	},
+	{
+      "locationName": "Bastion Oranje",
+
+      "characterTextTitle": "Bastion Oranje",
+      "characterTextDescription": "In 1629 was de stad ingenomen door het Staatse Leger van prins Frederik Hendrik. Omdat de kans hoog was dat de Spanjaarden terug zouden keren wilden Frederik Hendrik de verdediging van de stad flink versterken. De afstand tussen Bastions Vught en Baselaar was te groot, dus kwam er halverwege Bastion Oranje te staan. Kan je me misschien helpen met een slee zoeken?",
+
+      "topObjectName": "Kaakslee",
+      "topObjectDescription": "Deze slee is gemaakt van de onderkaak van een paard. Kinderen gebruikte deze sleeën om over het ijs en sneeuw voort te bewegen door zich met stokken voort te trekken.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Vught",
+      "startLocation": "Bastion Vught"
+	},
+	{
+      "locationName": "Bastion Vught",
+
+      "characterTextTitle": "Bastion Vught",
+      "characterTextDescription": "Deze Bastion kwam in 1629 onder vuur te liggen door de Staatse Troepen van prins Frederik Hendrik en uiteindelijk lukte ze het ook om het te veroveren. Kort daarna gaf de stad zich over aan de troepen. Ik wist zeker dat ik mijn mes hier ergens heb liggen. Misschien kan jij me helpen?",
+
+      "topObjectName": "Mes met M",
+      "topObjectDescription": "Dit mes komt uit de 15e eeuw. Wat dit mes zo bijzonder maakt is dat het gemerkt is met de letter M. Dit merk hoorde bij een messenmaker die duidelijk uit Den Bosch kwam.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Pieckepoort",
+      "startLocation": "Loop naar de Pieckepoort"
+	},
+	{
+      "locationName": "Pieckepoort",
+
+      "characterTextTitle": "Pieckepoort",
+      "characterTextDescription": "De Pieckepoort was oorspronkelijk een middeleeuwse stadspoort en stond in het midden van het Wilhelminaplein. Op de torens en het puntdak stonden zeven torenspitsen, vandaag de naam Pieckepoort. De poort werd zwaar beschadigd door de strijd in 1629. In 1729 werd de poort verbouwd. Heel veel onderdelen van het gebouw werden gesloopt, uiteindelijk bleef alleen de hoofdpoort staan. De ‘uitgeklede’ versie werd de Vughterpoort genoemd. De herbouwde poort werd gesloopt in 1890. Ik kan mijn kruik nergens vinden. Kan jij me misschien helpen?",
+
+      "topObjectName": "Kruikje",
+      "topObjectDescription": "In de 16e eeuw werden drink kannen met 3 oren populair. Vaak werden ze gebruikt bij drinkfestijnen, waarbij feestgangers de met bier gevulde kan doorgaven.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "Bastion Maria",
+      "startLocation": "Loop naar Bastion Maria"
+	},
+	{
+      "locationName": "Bastion Maria",
+
+      "characterTextTitle": "Bastion Maria",
+      "characterTextDescription": "In begin 17e bleek de defensie van Den Bosch heel slecht te zijn. Ingenieurs kwamen op het idee om een aantal Bastions aan te leggen, waaronder Bastion Maria die in 1614 werd gebouwd. Rond 1890 is Bastion Maria gesloopt, maar in de periode 2003-2006 is de deze Bastion gerestaureerd. Ik kan mijn Catharina beeldje nergens vinden. Kan jij me misschien helpen?",
+
+      "topObjectName": "Catharina beeld",
+      "topObjectDescription": "In de 15e eeuw kwamen er steeds meer vrouwelijke heiligen. Naast Maria wordt ook martelares Catherina van Alexandrië vereerd.",
+
+      "bottomObjectName": "-",
+      "bottomObjectDescription": "-",
+
+      "nextDestination": "-",
+      "startLocation": "-"
+	}
   ]
 }

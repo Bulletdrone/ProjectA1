@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Animator characterAnim;
     public Image locationImage;
-    public Image characterImage;
 
     public Image topObjectImage, bottomObjectImage;
 
@@ -34,15 +34,15 @@ public class UIManager : MonoBehaviour
         image.sprite = org;
     }
 
-    public void locationUI(int locInt)
+    public void LocationUI(int locInt)
     {
         string path = "UISprites/";
 
         locationImage.sprite = Resources.Load<Sprite>(path + "Locations/" + locInt);
-        characterImage.sprite = Resources.Load<Sprite>(path + "Characters/" + locInt);
+        characterAnim.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>(path + "Characters/" + locInt);
 
         topObjectImage.sprite = Resources.Load<Sprite>(path + "TopObjects/" + locInt);
-        bottomObjectImage.sprite = Resources.Load<Sprite>(path + "BottomObjects/" + locInt);
+        bottomObjectImage.sprite = Resources.Load<Sprite>(path + "BottomObjects/" + 0);
     }
 
     public void SetObjectSprites(bool top, bool bottom)

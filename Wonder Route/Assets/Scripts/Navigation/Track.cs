@@ -5,7 +5,6 @@ using UnityEngine;
 public class Track : MonoBehaviour
 {
     public Locations locations;
-    public LocationEnum locPos;
 
     public int maxDistance;
 
@@ -23,7 +22,7 @@ public class Track : MonoBehaviour
 
         if (!Input.location.isEnabledByUser)
         {
-            textManager.SetText(textManager.statusText, "Currently not tracking");
+            textManager.SetText(textManager.statusText, "Please enable or allow GPS on this app.");
             yield break;
         }
 
@@ -39,11 +38,13 @@ public class Track : MonoBehaviour
 
         if (waitUntilTimeOut < 1)
         {
+            textManager.SetText(textManager.statusText, "Please enable or allow GPS on this app.");
             yield break;
         }
 
         if (Input.location.status == LocationServiceStatus.Failed)
         {
+            textManager.SetText(textManager.statusText, "Please enable or allow GPS on this app.");
             yield break;
         }
         if (Input.location.status == LocationServiceStatus.Running)
@@ -59,18 +60,13 @@ public class Track : MonoBehaviour
     {
         if (OnLocation())
         {
-            textManager.SetText(textManager.statusText, "You're near " + locPos.ToString());
+            textManager.SetText(textManager.statusText, "Je bent dichtbij, swipe naar boven en volg de instructie.");
         }
         else
         {
-            textManager.SetText(textManager.statusText, "You're near " + locPos.ToString());
+            textManager.SetText(textManager.statusText, "Je bent nog te ver weg.");
+            TrackLocation();
         }
-    }
-
-    public void SetlocPos(int loc)
-    {
-        locPos = (LocationEnum)loc;
-        textManager.SetText(textManager.destinationText, locPos.ToString());
     }
 
     public bool OnLocation()
@@ -85,7 +81,7 @@ public class Track : MonoBehaviour
         currentLongitude = Input.location.lastData.longitude;
 
         float[] locationGPS;
-        locationGPS = locations.GetLocation(locPos);
+        locationGPS = locations.GetLocation(WorldManager.locations);
 
         locationLatitude = locationGPS[0];
         locationLongitude = locationGPS[1];
