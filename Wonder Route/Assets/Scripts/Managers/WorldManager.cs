@@ -44,8 +44,6 @@ public class WorldManager : MonoBehaviour
 
     void UnlockedItems(int locInt)
     {
-
-
         bool top = isItemUnlocked[locInt, 0];
         bool bottom = isItemUnlocked[locInt, 1];
 
