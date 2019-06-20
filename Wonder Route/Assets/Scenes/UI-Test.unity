@@ -3322,16 +3322,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvas: {fileID: 2026628891}
   _canvasLocations:
-  - {x: 0, y: 649, z: 0}
-  - {x: 310, y: 0, z: 0}
+  - {x: 0, y: 2325, z: 0}
+  - {x: 1100, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  - {x: -310, y: 0, z: 0}
-  - {x: 0, y: -649, z: 0}
+  - {x: -1100, y: 0, z: 0}
+  - {x: 0, y: -2325, z: 0}
   _canMoveX: 0001010100
   _canMoveY: 0100010001
   _lerpSpeed: 0.1
-  _maxCameraRangeX: 310
-  _maxCameraRangeY: 649
+  _maxCameraRangeX: 1100
+  _maxCameraRangeY: 2325
   _camSpeedX: 7.5
   _camSpeedY: 15
   _swipeDirectionAccuracy: 1
