@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            topObjectImage.color = Color.white;
+            topObjectImage.color = Color.black;
         }
 
         if (bottom)

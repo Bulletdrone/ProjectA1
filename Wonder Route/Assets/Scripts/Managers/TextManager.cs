@@ -63,6 +63,7 @@ public class TextManager : MonoBehaviour
         SceneInfoArray data;
         TextAsset ta = Resources.Load<TextAsset>("Json/SceneInfo");
         string content = ta.ToString();
+        //string json = File.ReadAllText(content);
         data = JsonUtility.FromJson<SceneInfoArray>(content);
         SceneInfo sceneInfo = data.SceneInfo[locInt];
 
@@ -91,8 +92,8 @@ public class TextManager : MonoBehaviour
         }
         else
         {
-            SetText(topObjectName, topObjectNameString);
-            SetText(topObjectDescription, topObjectDescriptionString);
+            SetText(topObjectName, "??");
+            SetText(topObjectDescription, "?????");
         }
 
         if (bottom)
